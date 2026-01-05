@@ -1,0 +1,194 @@
+@charset "utf-8";
+
+/* =================================================
+   全体レイアウト
+   ================================================= */
+
+/* ページ全体の背景と基本フォント */
+body {
+  background: #f2f4f8;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+/* アプリ本体のカード */
+main {
+  width: 420px;
+  margin: 40px auto;
+  padding: 24px;
+
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* =================================================
+   タイマー表示エリア
+   ================================================= */
+
+/* タイマー全体の配置（中央寄せ） */
+.timer-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 黒背景のタイマー表示部分 */
+#timer {
+  width: 300px;
+  padding: 28px 0;
+
+  background: #1f2937;
+  border-radius: 12px;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* 分:秒 表示 */
+#time-main {
+  font-size: 56px;
+  letter-spacing: 1px;
+}
+
+/* ミリ秒（少し控えめに表示） */
+#time-ms {
+  font-size: 32px;
+  margin-left: 4px;
+  opacity: 0.7;
+}
+
+/* =================================================
+   ラップタイム表示エリア
+   ================================================= */
+
+/* ラップ全体を囲むカード */
+.laps-area {
+  margin-top: 24px;
+  padding: 16px;
+
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+/* ラップ一覧（スクロール対応） */
+#laps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+/* ラップ1行分 */
+#laps li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 8px;
+  border-bottom: 1px solid #e5e7eb;
+
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  color: #1f2937;
+}
+
+/* 最新ラップを強調表示 */
+#laps li:first-child {
+  font-weight: 700;
+  color: #2563eb;
+}
+
+/* Lap番号 */
+.lap-index {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* ラップタイム本体 */
+.lap-time {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* スクロールバー（WebKit系） */
+#laps::-webkit-scrollbar {
+  width: 6px;
+}
+
+#laps::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+/* =================================================
+   ボタン共通スタイル
+   ================================================= */
+
+/* 全ボタンの基本デザイン */
+button {
+  all: unset;
+  display: inline-block;
+
+  width: 100%;
+  padding: 14px 0;
+  border-radius: 8px;
+
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: center;
+
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+/* ホバー時 */
+button:hover {
+  opacity: 0.85;
+}
+
+/* クリック時 */
+button:active {
+  transform: translateY(1px);
+}
+
+/* =================================================
+   ボタン配置と色分け
+   ================================================= */
+
+/* START / STOP / RESET を横並び */
+.buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+/* STOP（LAP）ボタン */
+.btn-stop {
+  background: #dc2626;
+}
+
+/* RESET ボタン */
+.btn-reset {
+  background: #9ca3af;
+}
+
+/* =================================================
+   無効状態（JSで付与）
+   ================================================= */
+
+/* 押せないボタンの見た目 */
+.inactive {
+  background: #e5e7eb;
+  color: #9ca3af;
+  cursor: default;
+}
+
+/* 無効時はホバー・アクティブ無効 */
+.inactive:hover {
+  opacity: 1;
+  transform: none;
+}
